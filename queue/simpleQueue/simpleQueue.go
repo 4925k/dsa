@@ -42,7 +42,9 @@ func (q *queue) enqueue(element string) {
 		fmt.Println("The queue is full.")
 		return
 	}
-	q.front = 0
+	if q.front == -1 { //if element is the first in the queue
+		q.front = 0
+	}
 	q.rear++
 	q.queue[q.rear] = element
 }
